@@ -1,6 +1,6 @@
 # Architecture: frontend and backend
 
-This document separates the two halves of WishyWashy and says which one is responsible for what.
+This document separates the two halves of WishyWash and says which one is responsible for what.
 For the product reasoning, payments, machine brands and the phased to-do list, see
 the private product plan (`private/PRODUCT_AND_BACKEND_PLAN.md`, kept on the owner's Mac only).
 
@@ -171,7 +171,7 @@ Frontend-only features that never move to the backend: the games (`Modules/Games
 
 On Supabase. The tables, security rules and booking functions below are written and tested in
 [`backend/supabase/migrations`](../../backend/supabase/migrations) (guide: [backend/README.md](../../backend/README.md)).
-Edge Functions, push and machine gateways are not built yet. The reasoning is in the
+Edge Functions, push and machine gateways are not built yet (the machine side has been tried with standalone tools, see section 8). The reasoning is in the
 Supabase implementation guide in the private product plan (`private/PRODUCT_AND_BACKEND_PLAN.md`, kept on the owner's Mac only).
 
 ```mermaid
@@ -291,6 +291,31 @@ sequenceDiagram
 If the machine cannot start after payment, the backend voids or refunds it and the app shows the message. Today this
 refund path is simulated in `MyLaundryInteractor.completeCheckIn`.
 
+### What a real machine has shown so far (15 Nov 2026)
+
+The machine side of this flow was tried on one real home washer-dryer, outside the app, with the tools in
+[`backend/machine-probe`](../../backend/machine-probe). What that proves and what it does not:
+
+| Proven | Not proven yet |
+|---|---|
+| A program next to the machine can read its state and time left, and can start a cycle | The whole chain: app, backend, gateway and machine together. Only the last link was tried |
+| One small interface (`list`, `status`, `start`, `stop`) hides the brand's messy details | Commercial laundromat machines, or any other brand on real hardware |
+| Starting can fail, so the refund path above is a real case, not a theoretical one | Reliability over many runs, and several machines in one shop |
+
+Three design inputs from it, **not built yet**:
+
+1. **Remote start is not a yes or no.** On this machine it works only after a person prepares it (a dial position and a
+   remote-control button), and the machine reports whether it is ready. The capability flags need a third value for
+   "conditional", plus a readiness value the gateway can read.
+2. **Check readiness before taking payment.** `can_check_in` already runs before payment. For machines with conditional start
+   it should also ask the gateway whether the machine is ready, and the app should show a "prepare the machine" step when it is not.
+3. **Programme choice is open.** The model assumes one machine means one cycle and one price. Some machines let the user
+   choose a programme. Decide whether a machine gets one fixed programme or the customer chooses.
+
+Two limits of the Bluetooth route used for that test matter for any gateway design: the gateway must be within a few metres of the
+machine, and the machine accepts only one Bluetooth connection at a time. The route is also unofficial, so it is a test bench and
+not something to build the product on.
+
 ### Booking status: who moves it
 
 ```mermaid
@@ -342,11 +367,11 @@ What stays in the frontend after the move:
 ## 10. Repository layout
 
 ```
-wishywashy/                     repository root
+wishywash/                     repository root
 ├── ios/                        FRONTEND: the iOS app
-│   ├── wishywashy.xcodeproj
-│   ├── wishywashy/             App, Entities, Modules, Services, SampleData, Shared
-│   └── wishywashyTests/        Unit tests for the booking rules
+│   ├── wishywash.xcodeproj
+│   ├── wishywash/             App, Entities, Modules, Services, SampleData, Shared
+│   └── wishywashTests/        Unit tests for the booking rules
 ├── backend/                    BACKEND: Supabase (database, rules and tests exist; not connected to the app)
 │   ├── README.md               Step-by-step guide for a first-time Supabase user
 │   ├── supabase/
@@ -359,11 +384,11 @@ wishywashy/                     repository root
 └── docs/                       Product plan, architecture, screenshots
 ```
 
-Open the iOS project with `ios/wishywashy.xcodeproj`. Run the tests from the `ios/` folder:
+Open the iOS project with `ios/wishywash.xcodeproj`. Run the tests from the `ios/` folder:
 
 ```bash
 cd ios
-xcodebuild test -project wishywashy.xcodeproj -scheme wishywashy \
+xcodebuild test -project wishywash.xcodeproj -scheme wishywash \
   -destination 'platform=iOS Simulator,name=iPhone 17' CODE_SIGNING_ALLOWED=NO
 ```
 
@@ -375,7 +400,7 @@ xcodebuild test -project wishywashy.xcodeproj -scheme wishywashy \
 |---|---|---|
 | **Sample** (default today) | `LocalBookingService` and sample data, no network | Development, previews, unit tests, App Store review |
 | **Local backend** | `supabase start` in Docker (or the throwaway Postgres behind `npm test`) | Backend development and tests |
-| **Development** | The `wishywashy-dev` Supabase project from [backend/README.md](../../backend/README.md) | Trying the backend by hand |
+| **Development** | The `wishywash-dev` Supabase project from [backend/README.md](../../backend/README.md) | Trying the backend by hand |
 | **Staging** (planned) | A separate Supabase project, provider in test mode | Testing releases |
 | **Production** (planned) | The production project | Real users |
 

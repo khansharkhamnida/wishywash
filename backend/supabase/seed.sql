@@ -1,7 +1,7 @@
 -- Sample laundromats and machines, the same ones the iOS app shows in sample mode.
 --
--- Generated from ios/wishywashy/Services/Laundromats/PartnerLaundromats.swift and
--- ios/wishywashy/SampleData/SampleMachines.swift. If you change those, change this too.
+-- Generated from ios/wishywash/Services/Laundromats/PartnerLaundromats.swift and
+-- ios/wishywash/SampleData/SampleMachines.swift. If you change those, change this too.
 --
 -- Safe to run more than once: rows that already exist are left alone.
 -- Machines that are "in use" are given a finish time counted from the moment you run this file.

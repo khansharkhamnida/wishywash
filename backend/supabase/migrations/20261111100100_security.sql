@@ -1,4 +1,4 @@
--- WishyWashy backend, part 2 of 4: who may read and write what.
+-- WishyWash backend, part 2 of 4: who may read and write what.
 --
 -- Supabase gives every table an automatic web API, so a table without row-level security (RLS) is readable and
 -- writable by anyone who has the public key. Here every table has RLS on, apps can only READ, and nothing can be

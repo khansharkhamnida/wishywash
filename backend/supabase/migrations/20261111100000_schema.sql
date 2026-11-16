@@ -1,4 +1,4 @@
--- WishyWashy backend, part 1 of 4: tables.
+-- WishyWash backend, part 1 of 4: tables.
 --
 -- Run this first. It only creates things, it does not insert any laundromats or machines (see seed.sql).
 -- Money is stored as whole cents (price_minor), never as a decimal. Times are timestamptz (UTC inside, shown in the

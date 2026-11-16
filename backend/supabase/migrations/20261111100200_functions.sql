@@ -1,4 +1,4 @@
--- WishyWashy backend, part 3 of 4: the booking rules, as database functions.
+-- WishyWash backend, part 3 of 4: the booking rules, as database functions.
 --
 -- These are the same rules the iOS app runs on the phone today (LocalBookingService), moved to the server so nobody
 -- can bypass them and so they use the server's clock.

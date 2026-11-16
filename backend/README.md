@@ -1,4 +1,4 @@
-# WishyWashy backend (Supabase)
+# WishyWash backend (Supabase)
 
 This folder is the **backend**: the database and the booking rules that the app will call instead of running them on
 the phone. It is written for someone who has never used Supabase. Follow Part A top to bottom and you will have a
@@ -47,7 +47,7 @@ backend/
 1. Go to [supabase.com](https://supabase.com) and sign up (signing in with GitHub is easiest).
 2. Create an organization if it asks (any name, Free plan).
 3. Click **New project** and fill in:
-   - **Name:** `wishywashy-dev`
+   - **Name:** `wishywash-dev`
    - **Database password:** click generate, then **save it in a password manager now**. You cannot read it again later.
    - **Region:** Southeast Asia (Singapore)
 4. Click create and wait about two minutes until the project dashboard appears.
@@ -82,7 +82,7 @@ variables for that session only. Never put them in a file inside this repo.
 
 If the editor warns that a table has no RLS after step 1, either choice is fine, because step 2 turns it on.
 
-If something fails halfway, read the red error, then run `supabase/dev_reset.sql` (it wipes the WishyWashy tables,
+If something fails halfway, read the red error, then run `supabase/dev_reset.sql` (it wipes the WishyWash tables,
 which is fine while learning) and start again from step 1.
 
 ### A4. Look at what you built
@@ -235,7 +235,7 @@ does anything, so the backend works without this, but the job keeps the data rig
 - **Rule numbers live in a table.** `booking_rules` holds the 10 minute window, the 15 minute limit and so on, so you
   can change them in the Table Editor without releasing an app.
 
-The rules are the same ones as `ios/wishywashy/Services/Bookings/BookingRules.swift`, with one difference: the limit of
+The rules are the same ones as `ios/wishywash/Services/Bookings/BookingRules.swift`, with one difference: the limit of
 5 upcoming bookings and "one reservation waiting for check-in" are now **per user**, which the phone-only version could
 not tell apart.
 

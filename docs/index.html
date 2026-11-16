@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>WishyWashy: find, book and pay for a laundromat machine</title>
+<title>WishyWash: find, book and pay for a laundromat machine</title>
 <meta name="description" content="A bubblegum-modern iOS app for finding and booking washers and dryers at self-service laundromats around Singapore.">
-<meta property="og:title" content="WishyWashy">
+<meta property="og:title" content="WishyWash">
 <meta property="og:description" content="Find, reserve and pay for a washer or dryer. Never turn up to a full laundromat again.">
 <meta property="og:image" content="screenshots/home.png">
 <style>
@@ -186,7 +186,7 @@
 
 <nav>
   <div class="wrap">
-    <a class="brand" href="#top">🫧 WishyWashy</a>
+    <a class="brand" href="#top">🫧 WishyWash</a>
     <ul>
       <li><a href="#how">How it works</a></li>
       <li><a href="#features">Features</a></li>
@@ -203,14 +203,14 @@
     <div>
       <span class="badge">🧺 iOS app · Singapore</span>
       <h1>Never find a <span>full laundromat</span> again.</h1>
-      <p>WishyWashy lets you find, reserve and pay for a washer or dryer at self-service laundromats, then tells you when to leave so you arrive on time. Three mini games keep you busy while you wait.</p>
+      <p>WishyWash lets you find, reserve and pay for a washer or dryer at self-service laundromats, then tells you when to leave so you arrive on time. Three mini games keep you busy while you wait.</p>
       <div class="actions">
         <a class="btn" href="#features">See the features</a>
-        <a class="btn alt" href="https://github.com/khansharkhamnida/wishywashy">View on GitHub</a>
+        <a class="btn alt" href="https://github.com/khansharkhamnida/wishywash">View on GitHub</a>
       </div>
     </div>
     <div class="hero-shot">
-      <img src="screenshots/home.png" alt="WishyWashy home screen showing a grid of cartoon washing machines">
+      <img src="screenshots/home.png" alt="WishyWash home screen showing a grid of cartoon washing machines">
     </div>
   </div>
 </header>
@@ -469,13 +469,13 @@
       <span class="chip">pg_cron</span>
       <span class="chip">iOS 26</span>
     </div>
-    <pre><code>git clone https://github.com/khansharkhamnida/wishywashy.git
-open wishywashy/ios/wishywashy.xcodeproj   # pick an iPhone simulator, press Run</code></pre>
+    <pre><code>git clone https://github.com/khansharkhamnida/wishywash.git
+open wishywash/ios/wishywash.xcodeproj   # pick an iPhone simulator, press Run</code></pre>
   </section>
 
   <section id="roadmap">
     <h2>Roadmap</h2>
-    <p class="lead">What is done and what is coming.</p>
+    <p class="lead">What is done and what is coming. Updated 16 Nov 2026. <b>Right now:</b> setting up the real backend so the app has something real to talk to.</p>
     <div class="roadmap">
       <div class="sticker">
         <h3>✅ Done</h3>
@@ -483,7 +483,7 @@ open wishywashy/ios/wishywashy.xcodeproj   # pick an iPhone simulator, press Run
           <li>Home, Bookings, My Laundry, Profile and Choose Laundromat</li>
           <li>Reserve now, finishing-soon and later bookings, with check-in, free cancel and expiry</li>
           <li>Payment at check-in with a test sheet and refunds</li>
-          <li>Arrive-on-time check with leave reminder</li>
+          <li>Arrive-on-time check with leave reminder, and a plan-your-way-back check while a cycle runs</li>
           <li>Three mini games</li>
           <li>Services layer behind protocols</li>
           <li>Unit tests for the booking rules</li>
@@ -494,9 +494,10 @@ open wishywashy/ios/wishywashy.xcodeproj   # pick an iPhone simulator, press Run
       <div class="sticker">
         <h3>🚧 Coming next</h3>
         <ul class="check later">
-          <li>Connect the app to the real backend <span class="tag">in progress</span></li>
+          <li>Create the backend project and apply the database <span class="tag">in progress</span></li>
+          <li>Connect the app to the real backend for live bookings</li>
+          <li>A machine gateway, then live machine status</li>
           <li>Real payments, with a webhook that checks you in</li>
-          <li>Live machine status</li>
           <li>Laundromat details page</li>
           <li>Games triggered from a running cycle, for example when a wash is nearly done</li>
         </ul>
@@ -507,7 +508,7 @@ open wishywashy/ios/wishywashy.xcodeproj   # pick an iPhone simulator, press Run
           <li>QR code check-in at the machine</li>
           <li>Staff and owner roles, cash recording and a dashboard</li>
           <li>Push notifications</li>
-          <li>Machine integrations (cloud APIs, retrofit controllers)</li>
+          <li>Machine integrations for more brands. Early experiment: a Beko washer-dryer was started from code over Bluetooth (unofficial, not in the app yet)</li>
           <li>Other currencies and opening hours per country</li>
         </ul>
       </div>
@@ -519,10 +520,10 @@ open wishywashy/ios/wishywashy.xcodeproj   # pick an iPhone simulator, press Run
 <footer>
   <div class="wrap">
     <div class="links">
-      <a href="https://github.com/khansharkhamnida/wishywashy">GitHub</a>
-      <a href="https://github.com/khansharkhamnida/wishywashy/blob/main/README.md">README</a>
-      <a href="https://github.com/khansharkhamnida/wishywashy/blob/main/backend/README.md">Backend guide</a>
-      <a href="https://github.com/khansharkhamnida/wishywashy/blob/main/docs/dev/ARCHITECTURE.md">Architecture</a>
+      <a href="https://github.com/khansharkhamnida/wishywash">GitHub</a>
+      <a href="https://github.com/khansharkhamnida/wishywash/blob/main/README.md">README</a>
+      <a href="https://github.com/khansharkhamnida/wishywash/blob/main/backend/README.md">Backend guide</a>
+      <a href="https://github.com/khansharkhamnida/wishywash/blob/main/docs/dev/ARCHITECTURE.md">Architecture</a>
     </div>
     <div>Made with 🫧 in Singapore. The app currently runs on sample data and no real payments are made.</div>
   </div>

@@ -1,4 +1,4 @@
--- WishyWashy backend, part 4 of 4: run private.advance_bookings() every minute.
+-- WishyWash backend, part 4 of 4: run private.advance_bookings() every minute.
 --
 -- This moves time forward on the server (expire holds, finish cycles, free machines) even when nobody has the app open.
 -- It needs the pg_cron extension. In Supabase turn it on first:

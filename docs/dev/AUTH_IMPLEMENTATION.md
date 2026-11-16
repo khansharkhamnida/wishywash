@@ -19,17 +19,17 @@ exactly as before, unless you turn on live mode.
 
 | Piece | Where |
 |---|---|
-| Switch and settings (`AppConfig`) | `ios/wishywashy/App/AppConfig.swift` |
-| Protocol, errors, session model | `ios/wishywashy/Services/Auth/AuthService.swift` |
-| Sample version (default) | `ios/wishywashy/Services/Auth/SampleAuthService.swift` |
-| Supabase version (plain `URLSession`, no package) | `ios/wishywashy/Services/Auth/SupabaseAuthService.swift` |
-| Keychain storage | `ios/wishywashy/Services/Auth/KeychainStore.swift` |
-| Login and Register (VIPER) | `ios/wishywashy/Modules/Auth/` |
+| Switch and settings (`AppConfig`) | `ios/wishywash/App/AppConfig.swift` |
+| Protocol, errors, session model | `ios/wishywash/Services/Auth/AuthService.swift` |
+| Sample version (default) | `ios/wishywash/Services/Auth/SampleAuthService.swift` |
+| Supabase version (plain `URLSession`, no package) | `ios/wishywash/Services/Auth/SupabaseAuthService.swift` |
+| Keychain storage | `ios/wishywash/Services/Auth/KeychainStore.swift` |
+| Login and Register (VIPER) | `ios/wishywash/Modules/Auth/` |
 | Form rules, friendly messages | `Modules/Auth/AuthValidation.swift`, `AuthMessages.swift` |
 | Sign Out row in Profile (live mode only) | `Modules/Profile/` |
-| `Session.user` = the signed-in user | `ios/wishywashy/Services/Session.swift` |
-| Chooses the root screen | `ios/wishywashy/App/SceneDelegate.swift` |
-| Tests | `ios/wishywashyTests/AuthTests.swift` |
+| `Session.user` = the signed-in user | `ios/wishywash/Services/Session.swift` |
+| Chooses the root screen | `ios/wishywash/App/SceneDelegate.swift` |
+| Tests | `ios/wishywashTests/AuthTests.swift` |
 
 **No Swift package was added.** The Supabase Swift SDK is optional. The Auth REST API is small, and a plain
 `URLSession` keeps the project free of dependencies. If you want the SDK later, only `SupabaseAuthService.swift` needs

@@ -29,7 +29,7 @@ const steps = [
   ['tests', sqlFilesIn(path.join(here, 'sql'))],
 ];
 
-const dataDir = fs.mkdtempSync(path.join(os.tmpdir(), 'wishywashy-pg-'));
+const dataDir = fs.mkdtempSync(path.join(os.tmpdir(), 'wishywash-pg-'));
 const port = 54000 + Math.floor(Math.random() * 900);
 const server = new EmbeddedPostgres({
   databaseDir: dataDir,
@@ -48,9 +48,9 @@ let client;
 try {
   await server.initialise();
   await server.start();
-  await server.createDatabase('wishywashy_test');
+  await server.createDatabase('wishywash_test');
 
-  client = new pg.Client({ host: 'localhost', port, user: 'postgres', password: 'password', database: 'wishywashy_test' });
+  client = new pg.Client({ host: 'localhost', port, user: 'postgres', password: 'password', database: 'wishywash_test' });
   client.on('error', () => {});
   await client.connect();
   client.on('notice', (n) => {

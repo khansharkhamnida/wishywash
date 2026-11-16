@@ -1,0 +1,28 @@
+//
+//  Payment.swift
+//  wishywash
+//
+//  Created by Shofia Ghazali on 3/11/26.
+//
+
+import Foundation
+
+enum PaymentStatus: String, Codable {
+    case pending, succeeded, failed, refunded
+}
+
+enum PaymentMethod: String, Codable {
+    case card, eWallet, applePay, payNow
+}
+
+struct Payment: Codable, Identifiable {
+    let id: String
+    let bookingId: String
+    let userId: String
+    let amount: Decimal
+    let currency: String
+    /// Nil when the payment provider has not told us which method was used
+    let method: PaymentMethod?
+    var status: PaymentStatus
+    let createdAt: Date
+}

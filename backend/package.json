@@ -1,7 +1,7 @@
 {
-  "name": "wishywashy-backend",
+  "name": "wishywash-backend",
   "private": true,
-  "description": "Supabase backend for WishyWashy: migrations, seed data and SQL tests",
+  "description": "Supabase backend for WishyWash: migrations, seed data and SQL tests",
   "scripts": {
     "test": "node tests/run.mjs"
   },

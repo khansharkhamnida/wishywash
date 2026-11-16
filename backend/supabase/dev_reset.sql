@@ -1,7 +1,7 @@
 -- DANGER: for development only. Never run this on a project with real users.
 --
--- Deletes every WishyWashy table (and all the data in them: laundromats, machines, bookings, profiles), every
--- WishyWashy function and the scheduled job. It does NOT delete the people who signed up (that is Supabase's
+-- Deletes every WishyWash table (and all the data in them: laundromats, machines, bookings, profiles), every
+-- WishyWash function and the scheduled job. It does NOT delete the people who signed up (that is Supabase's
 -- Authentication > Users list).
 --
 -- Use it when something went wrong halfway through the first run, or to start again from a clean slate.

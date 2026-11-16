@@ -10,11 +10,23 @@ node_modules/
 # Secrets and local tooling
 .env
 .env.*
+backend/machine-probe/**/.venv/
+__pycache__/
+backend/machine-probe/results/
+backend/machine-probe/beko/.cache/
+backend/machine-probe/sensors/state.json
+backend/machine-probe/sensors/machines.json
+backend/machine-probe/sensors/programs.json
+backend/machine-probe/sensors/logs/
+backend/machine-probe/sensors/esphome/secrets.yaml
+backend/machine-probe/sensors/esphome/.esphome/
+backend/machine-probe/sensors/*.csv
 backend/supabase/.temp/
 backend/supabase/.branches/
 
 # Private business plan, AI instructions and research (never pushed)
 private/
+AGENTS.md
 docs/research/
 
 # Local scratch notes
